@@ -19,7 +19,7 @@ namespace MatrixStudy1
             matrix.SetRotateMatrix(rotateAngle);
 
 			//平行移動
-			InputMoveInfo(out int moveX, out int moveY);
+			InputMoveInfo(out float moveX, out float moveY);
 			matrix.SetMoveMatrix(moveX, moveY);
 
 			//拡縮
@@ -39,15 +39,15 @@ namespace MatrixStudy1
             Console.ReadLine();
         }
 
-        public static void InputPoint(out int pointX, out int pointY)
+        public static void InputPoint(out float pointX, out float pointY)
         {
             Console.WriteLine("座標を入力してください");
 
             Console.Write("X：");
-            pointX = int.Parse(Console.ReadLine());
+            pointX = float.Parse(Console.ReadLine());
 
             Console.Write("Y：");
-            pointY = int.Parse(Console.ReadLine());
+            pointY = float.Parse(Console.ReadLine());
 
             //Console.Write("Z：");
             //var z = Console.ReadLine();
@@ -60,23 +60,23 @@ namespace MatrixStudy1
             rotateAngle = int.Parse(Console.ReadLine());
         }
 
-        public static void InputMoveInfo(out int moveX, out int moveY)
+        public static void InputMoveInfo(out float moveX, out float moveY)
         {
             Console.WriteLine("平行移動方向を入力してください。");
             Console.Write("　X方向：");
-            moveX = int.Parse(Console.ReadLine());
+            moveX = float.Parse(Console.ReadLine());
             Console.Write("　Y方向：");
-            moveY = int.Parse(Console.ReadLine());
+            moveY = float.Parse(Console.ReadLine());
         }
 
-        public static void InputScalarInfo(out double scalar)
+        public static void InputScalarInfo(out float scalar)
         {
             Console.WriteLine("拡大率を入力してください。");
             Console.Write("　拡大率：");
-            scalar = double.Parse(Console.ReadLine());
+            scalar = float.Parse(Console.ReadLine());
         }
 
-        public static void OutputResultMatrix(double[,] matrix)
+        public static void OutputResultMatrix(float[,] matrix)
         {
             Console.WriteLine("行列を出力します。");
             for (int i = 0; i < 3; i++)
@@ -88,7 +88,8 @@ namespace MatrixStudy1
                 Console.WriteLine();
             }
         }
-        public static void OutputResultPoint(int resultPointX, int resultPointY)
+
+        public static void OutputResultPoint(float resultPointX, float resultPointY)
         {
             Console.WriteLine("回転後の座標を出力します。");
             Console.WriteLine("X = " + resultPointX);

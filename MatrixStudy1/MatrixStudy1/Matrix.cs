@@ -15,8 +15,8 @@ namespace MatrixStudy1
 
 		public void SetRotateMatrix(int angle)
 		{
-			var sin = (int)Math.Sin(angle * (Math.PI / 180));
-			var cos = (int)Math.Cos(angle * (Math.PI / 180));
+			var sin = (float)Math.Sin(angle * (Math.PI / 180));
+			var cos = (float)Math.Cos(angle * (Math.PI / 180));
 
 			_matrix[0, 0] = cos;
 			_matrix[1, 1] = cos;
@@ -24,28 +24,28 @@ namespace MatrixStudy1
 			_matrix[1, 0] = sin;
 		}
 
-		public void SetMoveMatrix(int moveAmountX, int moveAmountY)
+		public void SetMoveMatrix(float moveAmountX, float moveAmountY)
 		{
 			_matrix[0, 2] = moveAmountX;
 			_matrix[1, 2] = moveAmountY;
 		}
 
-		public void SetScalarMatrix(double scalarAmount)
+		public void SetScalarMatrix(float scalarAmount)
 		{
 			_matrix[0, 0] = scalarAmount;
 			_matrix[1, 1] = scalarAmount;
 		}
 
-		public void GetCalculatedPoint(int x, int y, out int outX, out int outY)
+		public void GetCalculatedPoint(float x, float y, out float outX, out float outY)
 		{
-			outX = (int)(x * _matrix[0, 0] + y * _matrix[0, 1] + 1 * _matrix[0, 2]);
-			outY = (int)(x * _matrix[1, 0] + y * _matrix[1, 1] + 1 * _matrix[1, 2]);
+			outX = (x * _matrix[0, 0] + y * _matrix[0, 1] + 1 * _matrix[0, 2]);
+			outY = (x * _matrix[1, 0] + y * _matrix[1, 1] + 1 * _matrix[1, 2]);
 		}
 
-		public void CalcMultMatrix(double[,] scalarMtrix)
+		public void CalcMultMatrix(float[,] scalarMtrix)
 		{
 			var matrixBeforeCale = _matrix;
-			var resultMatrix = new double[4, 4];
+			var resultMatrix = new float[4, 4];
 
 			for (int i = 0; i < 3; i++)
 			{
@@ -64,7 +64,7 @@ namespace MatrixStudy1
 
 		private void InitMatrix()
 		{
-			_matrix = new double[3, 3]
+			_matrix = new float[3, 3]
 			{
 				{ 0,0,0 },
 				{ 0,0,0 },
@@ -72,7 +72,7 @@ namespace MatrixStudy1
 			};
 		}
 
-		public double[,] MatrixInfo => _matrix;
-		private double[,] _matrix;
+		public float[,] MatrixInfo => _matrix;
+		private float[,] _matrix;
 	}
 }
